@@ -1,0 +1,157 @@
+Given I create a new user
+HTTP 201 (Created)
+Content-Type: application/json; charset=utf-8
+Content-Length: 159
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Location: http://localhost:5000/api/users/MLHQMOYJ0Y
+Transfer-Encoding: chunked
+{
+  "userId": "MLHQMOYJ0Y",
+  "accountId": "1898078453549086",
+  "message": "User created successfully with User 'ZPAMNIRHBX', account 1898078453549086 and $100 deposit."
+}
+Response time: 3.9332 ms
+-> done: BankingSteps.GivenICreateARandomUser() (0.0s)
+Given I have a random user with accounts
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.9668 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.3056 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.6203 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.2756 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.4762 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.5777 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.7826 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.8091 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.7425 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 51
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "1488259044400432",
+    "balance": 1100.0
+  }
+]
+Response time: 2.6384 ms
+Selected user Id: FUOTSSWB0M
+Count of accounts associated: 1
+-> done: BankingSteps.GivenIHaveARandomUserWithAccount() (0.0s)
+When I delete all accounts for that user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 51
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "1488259044400432",
+    "balance": 1100.0
+  }
+]
+Response time: 3.2523 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 88
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "Account with ID 1488259044400432 deleted successfully for user FUOTSSWB0M."
+}
+Response time: 3.0081 ms
+-> done: BankingSteps.WhenIDeleteAllAccountsForThatUser() (0.0s)
+And I delete the user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 59
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "User with ID FUOTSSWB0M deleted successfully."
+}
+Response time: 3.23 ms
+-> done: BankingSteps.WhenIDeleteTheUser() (0.0s)
+Then the status code is 200
+-> done: BankingSteps.ThenTheStatusCodeIs(200) (0.0s)
+And the user should get a message containing "deleted successfully"
+-> done: BankingSteps.ThenTheUserShouldGetAMessageContaining("deleted successfully") (0.0s)
+And finding the not existing user should give message "User with ID <userId> not found."
+HTTP 404 (NotFound)
+Content-Type: application/json; charset=utf-8
+Content-Length: 48
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "User with ID FUOTSSWB0M not found."
+}
+Response time: 2.7389 ms
+-> done: BankingSteps.ThenFindTheNotExistingUserShouldGiveMessage("User with ID <use...") (0.0s)

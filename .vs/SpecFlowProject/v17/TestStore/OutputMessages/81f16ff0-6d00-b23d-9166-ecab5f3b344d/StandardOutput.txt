@@ -1,0 +1,152 @@
+Given I create a new user
+HTTP 201 (Created)
+Content-Type: application/json; charset=utf-8
+Content-Length: 159
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Location: http://localhost:5000/api/users/CJHNPG2C0I
+Transfer-Encoding: chunked
+{
+  "userId": "CJHNPG2C0I",
+  "accountId": "4760158542954943",
+  "message": "User created successfully with User 'OREJLBYZNT', account 4760158542954943 and $100 deposit."
+}
+Response time: 3.3717 ms
+-> done: BankingSteps.GivenICreateARandomUser() (0.0s)
+Given I have a random user with accounts
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.7588 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.4043 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.2756 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.9638 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.9364 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.8991 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.4927 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.5857 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.6879 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 48
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "5182057033000120",
+    "balance": 100
+  }
+]
+Response time: 3.1185 ms
+Selected user Id: 1B6F5UVPU0
+Count of accounts associated: 1
+-> done: BankingSteps.GivenIHaveARandomUserWithAccount() (0.0s)
+And I pick a random Account for the user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 48
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "5182057033000120",
+    "balance": 100
+  }
+]
+Response time: 2.6753 ms
+Selected Account Id: 5182057033000120
+Selected Account balance: 100
+-> done: BankingSteps.GivenIPickARandomAccountForTheUser() (0.0s)
+When I make a deposit of 5000
+HTTP 204 (NoContent)
+Content-Type: 
+Content-Length: 0
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Response time: 3.2627 ms
+-> done: BankingSteps.GivenIMakeATransactionOf("deposit", 5000) (0.0s)
+And I make a withdrawal of 2000
+HTTP 204 (NoContent)
+Content-Type: 
+Content-Length: 0
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Response time: 2.7003 ms
+-> done: BankingSteps.GivenIMakeATransactionOf("withdrawal", 2000) (0.0s)
+Then the status code is 204
+-> done: BankingSteps.ThenTheStatusCodeIs(204) (0.0s)
+And the user account should be updated with 3000
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 49
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "accountId": "5182057033000120",
+  "balance": 3100.0
+}
+Response time: 3.5413 ms
+-> done: BankingSteps.GivenTheUserAccountShouldBeUpdateWith("updated", 3000) (0.0s)

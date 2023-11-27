@@ -1,0 +1,149 @@
+Given I create a new user
+HTTP 201 (Created)
+Content-Type: application/json; charset=utf-8
+Content-Length: 159
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Location: http://localhost:5000/api/users/5SFP6KIB1K
+Transfer-Encoding: chunked
+{
+  "userId": "5SFP6KIB1K",
+  "accountId": "1074135524435166",
+  "message": "User created successfully with User 'INXAUFJELM', account 1074135524435166 and $100 deposit."
+}
+Response time: 3.9788 ms
+-> done: BankingSteps.GivenICreateARandomUser() (0.0s)
+Given I have a random user with accounts
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.1191 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.9214 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.463 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.2822 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.0966 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 7.0228 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.688 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.3599 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.499 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 51
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "5182057033000120",
+    "balance": 3100.0
+  }
+]
+Response time: 3.8367 ms
+Selected user Id: 1B6F5UVPU0
+Count of accounts associated: 1
+-> done: BankingSteps.GivenIHaveARandomUserWithAccount() (0.0s)
+And I pick a random Account for the user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 51
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "5182057033000120",
+    "balance": 3100.0
+  }
+]
+Response time: 4.0147 ms
+Selected Account Id: 5182057033000120
+Selected Account balance: 3100.0
+-> done: BankingSteps.GivenIPickARandomAccountForTheUser() (0.0s)
+When I delete the account for that user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 88
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "Account with ID 5182057033000120 deleted successfully for user 1B6F5UVPU0."
+}
+Response time: 3.9001 ms
+-> done: BankingSteps.WhenIDeleteAnAccountForThatUser() (0.0s)
+Then the user should get a message containing "deleted successfully"
+-> done: BankingSteps.ThenTheUserShouldGetAMessageContaining("deleted successfully") (0.0s)
+And the status code is 200
+-> done: BankingSteps.ThenTheStatusCodeIs(200) (0.0s)
+And finding the not existing account should give message "Account with ID <accountId> not found for user <userId>."
+HTTP 400 (BadRequest)
+Content-Type: application/json; charset=utf-8
+Content-Length: 77
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "Account with ID 5182057033000120 not found for user 1B6F5UVPU0."
+}
+Response time: 3.4901 ms
+-> done: BankingSteps.ThenFindTheNotExistingAccountShouldGiveMessage("Account with ID <...") (0.0s)

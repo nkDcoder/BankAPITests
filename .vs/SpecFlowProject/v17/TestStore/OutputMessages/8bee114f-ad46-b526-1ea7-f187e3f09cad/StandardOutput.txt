@@ -1,0 +1,177 @@
+Given I create a new user
+HTTP 201 (Created)
+Content-Type: application/json; charset=utf-8
+Content-Length: 159
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Location: http://localhost:5000/api/users/AEVMMQ9ABK
+Transfer-Encoding: chunked
+{
+  "userId": "AEVMMQ9ABK",
+  "accountId": "9734961957522528",
+  "message": "User created successfully with User 'NHLOIBPTJZ', account 9734961957522528 and $100 deposit."
+}
+Response time: 4.5471 ms
+-> done: BankingSteps.GivenICreateARandomUser() (0.0s)
+Given I have a random user with accounts
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.3184 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 5.0461 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 5.4165 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.3144 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.2433 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.8964 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.7744 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.6875 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.9618 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 97
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "2769642023634996",
+    "balance": 400.0
+  },
+  {
+    "accountId": "9975460121486718",
+    "balance": 100
+  }
+]
+Response time: 4.3679 ms
+Selected user Id: FUOTSSWB0M
+Count of accounts associated: 2
+-> done: BankingSteps.GivenIHaveARandomUserWithAccount() (0.0s)
+And I delete all accounts for that user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 97
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "2769642023634996",
+    "balance": 400.0
+  },
+  {
+    "accountId": "9975460121486718",
+    "balance": 100
+  }
+]
+Response time: 3.3266 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 88
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "Account with ID 2769642023634996 deleted successfully for user FUOTSSWB0M."
+}
+Response time: 3.526 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 88
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "Account with ID 9975460121486718 deleted successfully for user FUOTSSWB0M."
+}
+Response time: 3.7734 ms
+-> done: BankingSteps.GivenIDeleteAllAccountsForThatUser() (0.0s)
+When I added an account for the user
+HTTP 201 (Created)
+Content-Type: application/json; charset=utf-8
+Content-Length: 106
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Location: http://localhost:5000/api/users/FUOTSSWB0M/accounts/1488259044400432
+Transfer-Encoding: chunked
+{
+  "accountId": "1488259044400432",
+  "balance": 100,
+  "message": "Account created successfully with $100 deposit."
+}
+Response time: 7.5694 ms
+-> done: BankingSteps.WhenIAddedAnAccountForTheUser() (0.0s)
+Then the status code is 201
+-> done: BankingSteps.ThenTheStatusCodeIs(201) (0.0s)
+And the account should be added for the user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 46
+Date: Mon, 27 Nov 2023 05:09:50 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "accountId": "1488259044400432",
+  "balance": 100
+}
+Response time: 3.8088 ms
+-> done: BankingSteps.ThenTheAccountShouldBeAddedForTheUser() (0.0s)

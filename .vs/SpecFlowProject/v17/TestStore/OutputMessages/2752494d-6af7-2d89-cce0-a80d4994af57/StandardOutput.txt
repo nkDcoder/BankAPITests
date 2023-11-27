@@ -1,0 +1,164 @@
+Given I create a new user
+HTTP 201 (Created)
+Content-Type: application/json; charset=utf-8
+Content-Length: 159
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Location: http://localhost:5000/api/users/PNOWADYQI0
+Transfer-Encoding: chunked
+{
+  "userId": "PNOWADYQI0",
+  "accountId": "1469308582362319",
+  "message": "User created successfully with User 'CFUGKNYWHD', account 1469308582362319 and $100 deposit."
+}
+Response time: 5.8942 ms
+-> done: BankingSteps.GivenICreateARandomUser() (0.0s)
+Given I have a random user with accounts
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 22.0769 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.6386 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.2362 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.0275 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 4.238 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.9961 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.1982 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 2.7017 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.011 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 2
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[]
+Response time: 3.1224 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 48
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "6117010155001302",
+    "balance": 100
+  }
+]
+Response time: 3.0373 ms
+Selected user Id: GL30JD6CIU
+Count of accounts associated: 1
+-> done: BankingSteps.GivenIHaveARandomUserWithAccount() (0.1s)
+And I pick a random Account for the user
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 48
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+[
+  {
+    "accountId": "6117010155001302",
+    "balance": 100
+  }
+]
+Response time: 3.0472 ms
+Selected Account Id: 6117010155001302
+Selected Account balance: 100
+-> done: BankingSteps.GivenIPickARandomAccountForTheUser() (0.0s)
+When I set the account balance to 400
+HTTP 204 (NoContent)
+Content-Type: 
+Content-Length: 0
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Response time: 3.3785 ms
+HTTP 200 (OK)
+Content-Type: application/json; charset=utf-8
+Content-Length: 48
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "accountId": "6117010155001302",
+  "balance": 400.0
+}
+Response time: 3.078 ms
+-> done: BankingSteps.GivenISetTheAccountBalanceTo(400) (0.0s)
+And I make a withdrawal of 350
+HTTP 400 (BadRequest)
+Content-Type: application/json; charset=utf-8
+Content-Length: 107
+Date: Mon, 27 Nov 2023 05:09:51 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+{
+  "message": "Invalid withdrawal amount. The withdrawl can be up to 360.00 or should leave a balance >= 100"
+}
+Response time: 3.6961 ms
+-> done: BankingSteps.GivenIMakeATransactionOf("withdrawal", 350) (0.0s)
+Then the status code is 400
+-> done: BankingSteps.ThenTheStatusCodeIs(400) (0.0s)
+And the user should get a message containing "Invalid withdrawal amount."
+-> done: BankingSteps.ThenTheUserShouldGetAMessageContaining("Invalid withdrawa...") (0.0s)
