@@ -1,4 +1,4 @@
-Make sure the API is up before running the tests.
+Make sure you have 'https://github.com/nkDcoder/BankingAPI.git' setup and the API is up before running the tests.
 Run RunTestAndGenerateReport.bat for running the test
 Reports are generated at "Reports" folder with timestamp
 
